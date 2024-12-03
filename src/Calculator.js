@@ -8,7 +8,9 @@ function Calculator() {
 
   const handleCalculate = () => {
     try {
-      const sum = add(input);
+      // Replace '\\n' with actual newline character
+      const processedInput = input.replace(/\\n/g, '\n');
+      const sum = add(processedInput);
       setResult(sum);
       setError(null);
     } catch (err) {
@@ -24,13 +26,14 @@ function Calculator() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter numbers (e.g., 1,2,3)"
+          placeholder="Enter numbers (e.g., 1,2\n3)"
           className="calculator-input"
         />
         <button onClick={handleCalculate} className="calculate-button">Calculate</button>
       </div>
       {result !== null && <p className="result">Result: {result}</p>}
       {error && <p className="error">{error}</p>}
+      <p className="info">You can use commas or \n to separate numbers.</p>
     </div>
   );
 }
