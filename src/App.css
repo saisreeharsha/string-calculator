@@ -4,13 +4,16 @@ body {
 }
 
 .App {
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
   background-color: #282c34;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .App-main {
@@ -65,4 +68,27 @@ body {
 .error {
   font-size: 16px;
   color: #f44336;
+}
+
+
+.info-lines {
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.info-lines p {
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.info-lines ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.info-lines li {
+  margin-bottom: 0.25rem;
 }

@@ -8,7 +8,6 @@ function Calculator() {
 
   const handleCalculate = () => {
     try {
-      // Replace '\\n' with actual newline character
       const processedInput = input.replace(/\\n/g, '\n');
       const sum = add(processedInput);
       setResult(sum);
@@ -26,14 +25,22 @@ function Calculator() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter numbers (e.g., 1,2\n3)"
+          placeholder="Enter numbers"
           className="calculator-input"
+          aria-label="Enter numbers"
         />
         <button onClick={handleCalculate} className="calculate-button">Calculate</button>
       </div>
-      {result !== null && <p className="result">Result: {result}</p>}
-      {error && <p className="error">{error}</p>}
-      <p className="info">You can use commas or \n to separate numbers.</p>
+      <div className="info-lines">
+        <p>Examples:</p>
+        <ul>
+          <li>Basic: 1,2,3</li>
+          <li>With newline: 1\n2,3</li>
+          <li>Custom delimiter: //;\n1;2;3</li>
+        </ul>
+      </div>
+      {result !== null && <p className="result" aria-live="polite">Result: {result}</p>}
+      {error && <p className="error" aria-live="assertive">{error}</p>}
     </div>
   );
 }
